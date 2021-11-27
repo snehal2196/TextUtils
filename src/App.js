@@ -6,12 +6,12 @@ import TextForm from './components/TextForm';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
 import Typewriter from 'typewriter-effect';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  // Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   // Link
+// } from "react-router-dom";
 
 
 function App() {
@@ -41,15 +41,16 @@ function App() {
   }
   return (
     <>
-      <Router>
+      {/* <Router> */}
         <Navbar title='TextUtils' mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-4">
           
-          <Routes>
-            <Route exact path='/about' element={<About mode={mode}/>} />
+          {/* <Routes> */}
+            {/* <Route exact path='/about' element={<About mode={mode}/>} /> */}
 
-            <Route exact path='/' element={<TextForm heading="Try TextUtils -" 
+           
+            <TextForm heading="Try TextUtils - Word Counter, Character Counter, Remove Space" 
             Typewriter={<Typewriter
               options={{
                
@@ -85,13 +86,13 @@ function App() {
                 .deleteChars(22)
                 .start();
                 
-              }  }/> } mode={mode} showAlert={showAlert} />} />
-            {/* <TextForm heading="Try TextUtils - Word Counter, Character Counter, Remove Space" mode={mode} showAlert={showAlert} /> */}
+              }  }/> }
+            mode={mode} showAlert={showAlert} />
 
-          </Routes>
+          {/* </Routes> */}
 
         </div>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }
