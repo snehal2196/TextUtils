@@ -38,12 +38,11 @@ export default function TextForm(props) {
         props.showAlert('Text has been reversed!', 'success');
     };
 
-    // const handleCopy = () => {
-    //     var text = document.getElementById('myBox');
-    //     text.select();
-    //     navigator.clipboard.writeText(text.value);
-    //     props.showAlert('Text copied!', 'success');
-    // }
+    const handleCopy = () => {
+        navigator.clipboard.writeText(text);
+        props.showAlert('Text copied!', 'success');
+    }
+
     const handleExtraSpaces = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(' '))
@@ -69,12 +68,12 @@ export default function TextForm(props) {
                 <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={handleClrClick}> Clear Text </button>
                 <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={handleCapClick}> Capitalize </button>
                 <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={reversed}> Reverse Text </button>
-                {/* <button className="btn btn-primary mx-1" onClick={handleCopy}> Copy Text </button> */}
+                <button className="btn btn-primary mx-1" onClick={handleCopy}> Copy Text </button>
                 <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleExtraSpaces}> Remove Extra Space </button>
             </div>
             <div className="container my-2" style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
                 <h2>Text Summary</h2>
-                <p>{text.split(' ').filter((element)=>{ return element.length!==0}).length} words and {text.length} characters</p>
+                <p>{text.split(/\s/).filter((element)=>{ return element.length!==0}).length} words and {text.length} characters</p>
                 <p>{0.0032 * text.split(' ').filter((element)=>{ return element.length!==0}).length} minutes to read</p>
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : 'Enter something in the textbox above to preview it here.'}</p>
