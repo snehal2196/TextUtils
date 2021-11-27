@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import Typewriter from 'typewriter-effect';
 
 export default function TextForm(props) {
     const handleUpClick = () => {
@@ -55,26 +56,29 @@ export default function TextForm(props) {
     }
 
     const [text, setText] = useState('')
+    
+
     return (
         <>
             <div className="container" style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
-                <h1>{props.heading}</h1>
+                <h1> {props.Typewriter}</h1>
+                  
                 <div className="mb-3">
                     <textarea className="form-control" value={text} onChange={handleOnChange} id="mybox" rows="5"
                         style={{ color: props.mode === 'light' ? 'black' : 'white', backgroundColor: props.mode === 'light' ? 'white' : '#13466e' }}></textarea>
                 </div>
-                <button disabled={text.length===0} className="btn btn-primary mx-1  my-2" onClick={handleUpClick}> Convert To Uppercase </button>
-                <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={handleLoClick}> Convert To Lowercase </button>
-                <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={handleClrClick}> Clear Text </button>
-                <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={handleCapClick}> Capitalize </button>
-                <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={reversed}> Reverse Text </button>
-                <button className="btn btn-primary mx-1" onClick={handleCopy}> Copy Text </button>
-                <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleExtraSpaces}> Remove Extra Space </button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1  my-2" onClick={handleUpClick}> Convert To Uppercase </button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1 my-2" onClick={handleLoClick}> Convert To Lowercase </button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1 my-2" onClick={handleClrClick}> Clear Text </button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1 my-2" onClick={handleCapClick}> Capitalize </button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1 my-2" onClick={reversed}> Reverse Text </button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" onClick={handleCopy}> Copy Text </button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" onClick={handleExtraSpaces}> Remove Extra Space </button>
             </div>
             <div className="container my-2" style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
                 <h2>Text Summary</h2>
-                <p>{text.split(/\s/).filter((element)=>{ return element.length!==0}).length} words and {text.length} characters</p>
-                <p>{0.0032 * text.split(' ').filter((element)=>{ return element.length!==0}).length} minutes to read</p>
+                <p>{text.split(/\s/).filter((element) => { return element.length !== 0 }).length} words and {text.length} characters</p>
+                <p>{0.0032 * text.split(' ').filter((element) => { return element.length !== 0 }).length} minutes to read</p>
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : 'Enter something in the textbox above to preview it here.'}</p>
             </div>
