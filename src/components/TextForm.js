@@ -11,12 +11,12 @@ export default function TextForm(props) {
     const handleLoClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
-        props.showAlert('Converted into lowercase!', 'success');
+        props.showAlert('Converted TO lowercase!', 'success');
     }
     const handleClrClick = () => {
         let newText = '';
         setText(newText);
-        props.showAlert('Text cleared!', 'success');
+        props.showAlert('Cleared text!', 'success');
     }
     const handleCapClick = () => {
         let newText = text.toLowerCase().split(' ');
@@ -36,18 +36,18 @@ export default function TextForm(props) {
         let newText = joinedWords
 
         setText(newText);
-        props.showAlert('Text has been reversed!', 'success');
+        props.showAlert('Reversed text!', 'success');
     };
 
     const handleCopy = () => {
         navigator.clipboard.writeText(text);
-        props.showAlert('Text copied!', 'success');
+        props.showAlert('Copied text!', 'success');
     }
 
     const handleExtraSpaces = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(' '))
-        props.showAlert('Extra spaces removed!', 'success');
+        props.showAlert('Removed extra spaces!', 'success');
     }
 
     const handleOnChange = (event) => {
